@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import cn.edu.tju.tiei.logistics.dao.UsrMapper;
 import cn.edu.tju.tiei.logistics.model.Usr;
+import cn.edu.tju.tiei.logistics.dao.ShipperMapper;
+import cn.edu.tju.tiei.logistics.model.Shipper;
 
 public class Main {
 
@@ -28,6 +30,12 @@ public class Main {
 			
 			for (Usr usr : usrs) {
 				System.out.println(usr);
+			}
+			ShipperMapper mapper1 = sqlSession.getMapper(ShipperMapper.class);
+			List<Shipper> shippers = mapper1.selectByExample(null);
+			
+			for (Shipper shipper : shippers) {
+				System.out.println(shipper);
 			}
 			
 		} catch (IOException e) {
