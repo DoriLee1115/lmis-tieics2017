@@ -13,6 +13,8 @@ import cn.edu.tju.tiei.logistics.dao.UsrMapper;
 import cn.edu.tju.tiei.logistics.model.Usr;
 import cn.edu.tju.tiei.logistics.dao.ShipperMapper;
 import cn.edu.tju.tiei.logistics.model.Shipper;
+import cn.edu.tju.tiei.logistics.dao.CarrierMapper;
+import cn.edu.tju.tiei.logistics.model.Carrier;
 
 public class Main {
 
@@ -25,17 +27,23 @@ public class Main {
 			SqlSessionFactory sqlSessionFactory = 
 					new SqlSessionFactoryBuilder().build(inputStream);
 			SqlSession sqlSession = sqlSessionFactory.openSession();
-			UsrMapper mapper = sqlSession.getMapper(UsrMapper.class);
-			List<Usr> usrs = mapper.selectByExample(null);
+			UsrMapper usrmapper = sqlSession.getMapper(UsrMapper.class);
+			List<Usr> usrs = usrmapper.selectByExample(null);
 			
 			for (Usr usr : usrs) {
 				System.out.println(usr);
 			}
-			ShipperMapper mapper1 = sqlSession.getMapper(ShipperMapper.class);
-			List<Shipper> shippers = mapper1.selectByExample(null);
+			ShipperMapper shippermapper = sqlSession.getMapper(ShipperMapper.class);
+			List<Shipper> shippers = shippermapper.selectByExample(null);
 			
 			for (Shipper shipper : shippers) {
 				System.out.println(shipper);
+			}
+			CarrierMapper carriermapper = sqlSession.getMapper(CarrierMapper.class);
+			List<Carrier> carriers = carriermapper.selectByExample(null);
+			
+			for (Carrier carrier : carriers) {
+				System.out.println(carrier);
 			}
 			
 		} catch (IOException e) {
