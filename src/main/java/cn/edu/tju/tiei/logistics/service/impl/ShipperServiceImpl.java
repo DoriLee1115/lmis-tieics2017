@@ -17,12 +17,12 @@ public class ShipperServiceImpl implements IShipperService {
 	@Resource
 	private ShipperMapper shipperMapper;
 
-	public ShipperMapper getUsrMapper() {
+	public ShipperMapper getShipperMapper() {
 		return shipperMapper;
 	}
 
 	@Autowired
-	public void setUsrMapper(ShipperMapper shipperMapper) {
+	public void setShipperMapper(ShipperMapper shipperMapper) {
 		this.shipperMapper = shipperMapper;
 	}
 
