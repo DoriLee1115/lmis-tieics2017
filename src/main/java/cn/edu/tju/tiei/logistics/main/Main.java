@@ -15,6 +15,8 @@ import cn.edu.tju.tiei.logistics.dao.ShipperMapper;
 import cn.edu.tju.tiei.logistics.model.Shipper;
 import cn.edu.tju.tiei.logistics.dao.CarrierMapper;
 import cn.edu.tju.tiei.logistics.model.Carrier;
+import cn.edu.tju.tiei.logistics.dao.WaybillMapper;
+import cn.edu.tju.tiei.logistics.model.Waybill;
 
 public class Main {
 
@@ -44,6 +46,12 @@ public class Main {
 			
 			for (Carrier carrier : carriers) {
 				System.out.println(carrier);
+			}
+			WaybillMapper waybillmapper = sqlSession.getMapper(WaybillMapper.class);
+			List<Waybill> waybills = waybillmapper.selectByExample(null);
+			
+			for (Waybill waybill : waybills) {
+				System.out.println(waybill);
 			}
 			
 		} catch (IOException e) {
